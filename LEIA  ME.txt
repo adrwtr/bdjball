@@ -24,6 +24,8 @@ Eu não inclui o EXE, você mesmo deve compilar o código em seu DEV-C++.
 Para isto, você precisa ter o Allegro 4.2.2 instalado.
 
 
+
+
 Para ler o código, é preciso ter conhecimento em C++ e Orientação a Objetos.
 
 ORDEM PARA LER O CÓDIGO E ENTENDER:
@@ -55,3 +57,11 @@ Você deve entender o que cada função da cenario faz até o fim de passo 3
 
 
 Continue seguindo os passos para entender como o código fonte foi criado.
+
+
+
+
+
+
+
+

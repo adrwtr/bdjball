@@ -1,0 +1,48 @@
+# Project: bdjball
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = bdjball_private.res
+OBJ  = cenario.o main.o pecas.o jogador.o bolas.o efeitos.o $(RES)
+LINKOBJ  = cenario.o main.o pecas.o jogador.o bolas.o efeitos.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lalleg_s -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lole32 -ldinput -lddraw -ldxguid -lwinmm -ldsound 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = bdjball.exe
+CXXFLAGS = $(CXXINCS) -DALLEGRO_STATICLINK 
+CFLAGS = $(INCS) -DALLEGRO_STATICLINK 
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before bdjball.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "bdjball.exe" $(LIBS)
+
+cenario.o: cenario.cpp
+	$(CPP) -c cenario.cpp -o cenario.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+pecas.o: pecas.cpp
+	$(CPP) -c pecas.cpp -o pecas.o $(CXXFLAGS)
+
+jogador.o: jogador.cpp
+	$(CPP) -c jogador.cpp -o jogador.o $(CXXFLAGS)
+
+bolas.o: bolas.cpp
+	$(CPP) -c bolas.cpp -o bolas.o $(CXXFLAGS)
+
+efeitos.o: efeitos.cpp
+	$(CPP) -c efeitos.cpp -o efeitos.o $(CXXFLAGS)
+
+bdjball_private.res: bdjball_private.rc 
+	$(WINDRES) -i bdjball_private.rc --input-format=rc -o bdjball_private.res -O coff 
